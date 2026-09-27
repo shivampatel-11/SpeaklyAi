@@ -27,7 +27,8 @@ export interface IConversationService {
 
 class ApiConversationService implements IConversationService {
   private activeSessions: Map<string, ConversationSession> = new Map()
-  private apiBaseUrl = '/api/conversations'
+  private apiBaseUrl =
+  `${import.meta.env.VITE_API_URL || ''}/api/conversations`
 
   async getModes(): Promise<PracticeMode[]> {
     return [...PRACTICE_MODES]
